@@ -90,7 +90,7 @@ export default class App extends React.Component {
                  </Scene>
                  <Scene key="createtrips" component={createTrips} title="Create Trip"/>
                  <Scene key="searchmembers" component={searchMembers} title="Search"/>
-                 <Scene key="tripDetails" component={tripDetails} title="Trip Details"/>
+                 <Scene key="tripsdetails" component={tripDetails} title="Trip Details"/>
         {/* <Scene key="register" component={Register} title="Register"/>
         <Scene key="home" component={Home}/> */}
       </Scene>
