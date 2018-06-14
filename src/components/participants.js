@@ -12,6 +12,8 @@ let todateconvert
 let key
 let listuserarray
 let arraylist = []
+let pushArray = []
+let pushArrayprops = []
 class searchMembers extends React.Component {
   constructor() {
     super();
@@ -20,6 +22,7 @@ class searchMembers extends React.Component {
         listeduser: '',
         selectedtext: []
     };
+    this.senddata = this.senddata.bind(this)
     // this.addmembers = this.addmembers.bind(this)
     // this.searchdata = this.searchdata.bind(this)
     // const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
@@ -38,6 +41,27 @@ class searchMembers extends React.Component {
 //         });
 //     })
 //   }
+senddata(namedata, uid){
+  console.log("namedata", namedata)
+  pushArray.push({namedata, uid})
+  console.log("pusharray", pushArray)
+  let valusearray = pushArray.map(function(itema){
+      return itema.uid
+  })
+  let isisduplicate = valusearray.some(function(itemm, idx){
+       return valusearray.indexOf(itemm) != idx
+  })
+  console.log(isisduplicate)
+  if(isisduplicate){
+    alert("user is already selected")
+  }
+  else{
+    pushArrayprops.push({namedata, uid})
+    Actions.createtrips({profile: pushArrayprops})
+    console.log("pushArrayprops", pushArrayprops)
+  }
+  // Actions.createtrips({profile:{namedata: items.firstname, uidkey: items.uid}})
+}
 changeselected(iddata, nameid){
   arraylist.push ({iddata,nameid})
   this.setState({
@@ -93,10 +117,11 @@ componentWillMount(){
                     console.log("items",items)
                     return(
                         <TouchableOpacity 
-                        // onPress = {()=>this.changeselected(items.uid, items.firstname)}
+                        // onPress = {()=>this.senddata(items.firstname, items.uid)}
                         key = {i} 
                         onPress = {()=>Actions.createtrips({profile:{namedata: items.firstname, uidkey: items.uid}})}
                         >
+                        
                          {/* <TouchableOpacity key = {i} onPress = {()=>Actions.createtrips({profile:items.firstname})}>    */}
                         <Text>{items.firstname}</Text>
                         <Text>{datsort.length>0?"selected":"select"}</Text>

@@ -64,7 +64,9 @@ export default class App extends React.Component {
                             title={Favourites}
                             component={Favourites} />
         </Scene> */}
-        <Scene key="home"  tabs={true}  tabBarPosition="top" tabBarStyle={{marginTop: 20}}>
+        <Scene key="home"  tabs={true}  tabBarPosition="top" 
+        // tabBarStyle={{marginTop: 20}}
+        >
         <Scene  key="mytrip"
                           title="MyTrips"
                           iconName="tags"

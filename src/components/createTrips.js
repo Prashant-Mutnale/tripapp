@@ -13,6 +13,9 @@ let datetoconvert
 let todateconvert
 let key
 let profilenamearray = []
+let valurArray
+let isDuplicate
+
 var options = {
   // title: 'Select Avatar',
   storageOptions: {
@@ -34,13 +37,19 @@ class createTrips extends React.Component {
         places: '',
         tripbackground: '',
         todaytime: '',
-        statustrips: ''
+        statustrips: '',
+        userfirstname : '',
+        userlastname :  '',
+        avatar: '',
+        description: ''
     };
     this.addtrip = this.addtrip.bind(this)
     this.tripmembers = this.tripmembers.bind(this)
     this.placecall = this.placecall.bind(this)
     this.explorememberdata  = this.explorememberdata.bind(this)
     this.getimage = this.getimage.bind(this)
+    this.descriptioncall = this.descriptioncall.bind(this)
+    // this.getuserdetails = this.getuserdetails.bind(this)
     // this.tripnamecall = this.tripnamecall.bind(this)
   }
   tripnamecall(text){
@@ -56,6 +65,13 @@ placecall(text){
         places: text
     })
     AsyncStorage.setItem('placesdata',  JSON.stringify(this.state.places))
+  }
+  descriptioncall(text){
+    this.setState({
+      description: text
+    })
+    AsyncStorage.setItem('descriptiodata',  JSON.stringify(this.state.description))
+    console.log("descriptioncall",this.state.description)
   }
   componentWillMount(){
     let todaysdate = new Date()
@@ -73,6 +89,10 @@ placecall(text){
         // console.log("valuedata", value)
         this.setState({"places": JSON.parse(value)});
     }).done();
+    AsyncStorage.getItem("descriptiodata").then((value) => {
+      console.log("valuedatadescription", value)
+      this.setState({"description": JSON.parse(value)});
+  }).done();
     AsyncStorage.getItem("fromdatesync").then((value) => {
         console.log("valuedatasync", value)
         this.setState({"fromdate": JSON.parse(value)});
@@ -91,8 +111,42 @@ placecall(text){
       }
     AsyncStorage.getItem("useriddata").then((value) => {
         this.setState({"useriddata": value});
+        let userdata = firebase.database().ref('userlist').child(this.state.useriddata);
+        userdata.on('value', snapshot=> { 
+          console.log("usersnapshot", snapshot)
+          this.setState({
+            userfirstname : snapshot._value.firstname,
+            userlastname : snapshot._value.lastname,
+            avatar: snapshot._value.avatar
+          })
+           
+          // console.log("userdatai",snapshot)
+        })
     }).done();
+  
+ 
+
+    valurArray = profilenamearray.map(function(itemd){
+      return itemd.uidkey
+      //  console.log("itemsd",itemd)
+    })
+    isDuplicate = valurArray.some(function(itemsa, idx){
+        return valurArray.indexOf(itemsa)!= idx
+    })
+    console.log("gotduplicate", isDuplicate)
   }
+  // getuserdetails(datauser){
+
+  //   console.log("thisdata", datauser)
+  //   let userdata = firebase.database().ref('userlist').child(datauser);
+  //   userdata.on('value', snapshot=> { 
+  //     this.setState({
+  //       userfirstname: snapshot._value.firstname,
+  //       userlastname: snapshot._value.lastname
+  //     })
+  //     // console.log("userdatai",snapshot)
+  //   })
+  // }
   _showDateTimePicker = () => this.setState({ isDateTimePickerVisible: true });
 
   _hideDateTimePicker = () => this.setState({ isDateTimePickerVisible: false });
@@ -156,7 +210,9 @@ placecall(text){
   explorememberlist.set(
       profilenamearray
   )
-  // profilenamearray = []
+  .then(()=>{
+    profilenamearray = []
+  })
 }
   tripmembers(timestamp){
       console.log(timestamp)
@@ -164,28 +220,15 @@ placecall(text){
     membertripsadd.set(
         profilenamearray
     )
+    .then(()=>{
+      profilenamearray = []
+    })
     // profilenamearray = []
   }
 
  
   addtrip(){
-    console.log("nedated", this.state.todaytime)
-    console.log("nedatedgenerated", datetoconvert)
-    // if(this.state.todaytime>datetoconvert && this.state.todaytime<todateconvert){
-    //   // this.setState({
-    //   //   statustrips: "Current"
-    //   // })
-    //   console.log("")
-    // }
-    // else if(this.state.todaytime<datetoconvert && datetoconvert<todateconvert){
-    //   // this.setState({
-    //   //   statustrips: "Upcoming"
-    //   // })
-    //   console.log("upcoming")
-    // }
-    // else{
-    //   console.log("Completed")
-    // }
+
 
     console.log("addtripimage", this.state.tripbackground)
     let timestamp = Number(new Date());
@@ -199,7 +242,8 @@ placecall(text){
         todate: todateconvert,
         keyid : timestamp,
         tripbackground: this.state.tripbackground,
-        tripstatus: this.state.statustrips
+        tripstatus: this.state.statustrips,
+        tripdescriptiondata: this.state.description
         // keydata: mytripskey.key
       })
    
@@ -212,7 +256,7 @@ placecall(text){
     //     console.log(key)
     //     // var childKey = snapshot.child("name/last").key; // "last"
     //   });
-
+    
     let exploredata = firebase.database().ref('exploredata').child(timestamp)
     exploredata.set({
       Triptitle: this.state.tripname,
@@ -221,7 +265,11 @@ placecall(text){
       todate: todateconvert,
       keyid : timestamp,
       tripbackground: this.state.tripbackground,
-      tripstatus: this.state.statustrips
+      tripstatus: this.state.statustrips,
+      firstname: this.state.userfirstname,
+      lastname: this.state.userlastname,
+      avatar: this.state.avatar,
+      tripdescriptiondata: this.state.tripdescription
       // keydata: mytripskey.key
     })
     .then(()=>{
@@ -236,6 +284,7 @@ placecall(text){
     AsyncStorage.removeItem('fromdatesync')
     AsyncStorage.removeItem('todatesync')
     AsyncStorage.removeItem('backimageurl')
+    AsyncStorage.removeItem('descriptiodata')
     Actions.mytrip()
   }
 
@@ -292,7 +341,9 @@ placecall(text){
       console.log("profiledata",profilenamearray)
       console.log("dataconsole", this.state.useriddata)
       console.log("status",this.state.statustrips)
-   
+    // if(this.state.useriddata!==""){
+    //   this.getuserdetails(this.state.useriddata)
+    // }
     return (
       <ScrollView>
               <TextInput
@@ -306,6 +357,13 @@ placecall(text){
         style={{height: 40, borderColor: 'gray', borderWidth: 1}}
         onChangeText={(text) => this.placecall(text)}
         value={this.state.places}
+      />
+      <TextInput
+        placeholder = {'Description'}
+        style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+        // onSelectionChange={(text)=>this.descriptioncall(text)}
+        onChangeText={(text) => this.descriptioncall(text)}
+        value={this.state.description}
       />
           <TextInput
              onFocus = {this._showDateTimePicker}
@@ -333,18 +391,38 @@ placecall(text){
         />
         <View>
             {
+             
+              //   profilenamearray.map((items,i) => {
+              //       console.log("profileitems",items)
+              //       items!==""?
+              //  items.map((itemskey, is)=>{
+              //           console.log("keyitems", itemskey.namedata)
+              //           return(
+              //             // <View key = {is}>
+              //             //   <Text>
+              //             //       {itemskey.namedata}
+              //             //   </Text>
+              //             //   </View>
+              //             <Text>{itemskey.namedata}</Text>
+              //           )
+              //       })
+              //     :null
+              //   })
                 profilenamearray.map((items,i) => {
-                    console.log("profileitems",items)
-                    return(
-                      <View>
-                        <Text>
-                            {items.namedata}
-                        </Text>
-                        </View>
-                    )
+                  console.log("profileitems",items)
+                  return(
+                              <View key = {i}>
+                                <Text>
+                                    {items.namedata}
+                                </Text>
+                                </View>
+                            )
                 })
             }
-            
+              <Image
+              style={{width: 100, height: 100}}
+              source={{uri: this.state.tripbackground}}
+        />
         </View>
         <TouchableOpacity onPress= {()=>this.getimage()}><Text>Trip Background</Text></TouchableOpacity>
         <TouchableOpacity onPress = {()=> Actions.searchmembers()}><Text>Add Members</Text></TouchableOpacity>

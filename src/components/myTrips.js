@@ -134,18 +134,34 @@ getdatacount(fromget,toget){
               this.getdatacount(items.fromdata, items.todate)
               return(
                 <TouchableOpacity key = {i}
-                onPress = {()=>Actions.tripsdetails()}
+                onPress = {()=>Actions.tripsdetails({keyiddata: items.keyid})}
                 // onPress = {()=>Actions.createtrips()}
-                style = {{
-                    flexDirection: 'row'
-                }}>
+                
+>
                     <View style = {{
                         flex: 1,
-                        backgroundColor: 'red'
+                        height: 140,
+                        position: 'relative'
+                        // backgroundColor: 'red'
                     }}>
-                    <Text>image</Text>
+                        <Image
+                  //  blurRadius={1}
+                  style={{borderRadius: 5,flexShrink: 1, flex: 1, width: null}}
+                  source={{uri: items.tripbackground}}
+                  />
+                  <View style = {{
+                    position: 'absolute',
+                    top: 0,
+                    width: '100%',
+                    backgroundColor: 'rgba(57, 70, 91, 0.53)',
+                    height: '100%',
+                  }}>
+                  <View style = {{height: '100%',  justifyContent: 'center', alignItems: 'center'}}>  
+                    <Text style = {{color: '#fff', fontSize: 20}}>{items.Triptitle}</Text>
                     </View>
-                    <View style = {{
+                  </View>
+                    </View>
+                    {/* <View style = {{
                         flex: 2
                     }}>
                        <Text>{items.Triptitle}</Text>
@@ -161,7 +177,7 @@ getdatacount(fromget,toget){
                        <Text>{items.fromdata}</Text>
                        <Text>{items.todate}</Text>
                        <Text>{statusdata}</Text>
-                    </View>
+                    </View> */}
                     
                 </TouchableOpacity>
               )

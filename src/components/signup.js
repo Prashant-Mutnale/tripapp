@@ -15,7 +15,8 @@ class Signup extends React.Component {
         email : '',
         password: '',
         uid: '',
-        mobile: ''
+        mobile: '',
+        avararprofile: 'https://firebasestorage.googleapis.com/v0/b/groupapp-2d21b.appspot.com/o/profile.png?alt=media&token=f76208d7-fde3-48ac-9886-b62e5acc92f9'
       // firebase things?
     };
     // this.login = this.login.bind(this);
@@ -41,7 +42,8 @@ class Signup extends React.Component {
         lastname:this.state.lname,
         email: this.state.email,
         mobile: this.state.mobile,
-        uid : getuid
+        uid : getuid,
+        avatar: this.state.avararprofile
       }, function(error) {
         if (error) {
             console.log("dataerror")
