@@ -102,8 +102,10 @@ placecall(text){
       this.setState({"todate": JSON.parse(value)});
   }).done();
    AsyncStorage.getItem("backimageurl").then((value) => {
-        console.log("valuedatasync", value)
-        this.setState({"tripbackground": JSON.parse(value)});
+        // console.log("valuedatasync", value)
+        if(value !==null){
+          this.setState({"tripbackground": JSON.parse(value)});
+        }
     }).done();
       if(this.props.profile !=="" && this.props.profile !== undefined){
         profilenamearray.push(this.props.profile)
@@ -292,7 +294,7 @@ placecall(text){
    
     ImagePicker.showImagePicker(options, (response) => {
       // const image = currentImage.uri
-      let image = response.uri
+      let image = Platform.OS === 'ios' ? response.origURL : response.uri
       console.log(image)
       const Blob = RNFetchBlob.polyfill.Blob
       const fs = RNFetchBlob.fs
@@ -345,7 +347,9 @@ placecall(text){
     //   this.getuserdetails(this.state.useriddata)
     // }
     return (
-      <ScrollView>
+      <ScrollView style = {{
+        backgroundColor: '#fff'
+      }}>
               <TextInput
         placeholder = {'Trip Title'}
         style={{height: 40, borderColor: 'gray', borderWidth: 1}}
@@ -408,6 +412,7 @@ placecall(text){
               //       })
               //     :null
               //   })
+              profilenamearray !== "" && profilenamearray!==null?
                 profilenamearray.map((items,i) => {
                   console.log("profileitems",items)
                   return(
@@ -418,6 +423,7 @@ placecall(text){
                                 </View>
                             )
                 })
+                :null
             }
               <Image
               style={{width: 100, height: 100}}

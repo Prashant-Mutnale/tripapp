@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Platform, Image, Text, View, ScrollView, TouchableOpacity, TextInput,AsyncStorage } from 'react-native';
+import { StyleSheet, Platform, Image, Text, View, ScrollView, TouchableOpacity, TextInput,AsyncStorage,FlatList } from 'react-native';
 import {fetchPosts} from '../redux/actions/postActions';
 import firebase from 'react-native-firebase';
 import {connect} from 'react-redux'
@@ -42,7 +42,71 @@ class Explore extends React.Component {
           <View><Text>no data found</Text></View>
           :null
         }
-        {
+         <FlatList
+          data={this.state.exploredatalist}
+          showsVerticalScrollIndicator={false}
+          renderItem={({item}) =>
+          <View style = {{
+            margin: 10
+          }}>
+            <View style = {{
+              flexDirection: 'row',
+              marginBottom: 10
+            }}>
+              <View style = {{ borderRadius: 50,overflow: 'hidden',  width: 50,
+                height: 50,}}>
+              <Image
+       style={{ flexShrink: 1, flex: 1, width: null}}
+      source={{uri: item.avatar}}
+    />
+              
+              </View>
+              <View style = {{flex: 2, marginLeft: 10}}><Text>{item.firstname} {item.lastname}</Text></View>
+            </View>
+              <View style = {{
+                flex: 1,
+                height: 140,
+                position: 'relative'
+              }}>
+              <Image
+              //  blurRadius={1}
+              style={{borderRadius: 5,flexShrink: 1, flex: 1, width: null}}
+              source={{uri: item.tripbackground}}
+              />
+                <View style = {{
+                flex: 3,
+                backgroundColor: 'rgba(57, 70, 91, 0.53)',
+                position: 'absolute',
+                top: 0,
+                width: '100%',
+                height: '100%',
+                flexDirection: 'column'
+              }}>
+              <View style = {{height: '100%',  justifyContent: 'center', alignItems: 'center'}}>  
+                  <Text style = {{color: '#fff', fontSize: 20}}>{item.Triptitle}</Text>
+              </View>
+              
+              {/* <Text>{fromday}th {frommonth} {fromyear} to {today}th {tomonth} {toyear}</Text>
+              {
+                items.memberlist !=="" && items.memberlist !== undefined ?
+                Object.values(items.memberlist).map((itemmember, im)=>{
+                  return(
+                    <Text>{itemmember.namedata}</Text>
+                  )
+                })
+                :null
+              } */}
+             
+              </View>
+              </View>
+            
+          </View>
+          }
+          keyExtractor={item => item.email}
+        />
+        
+         {/* oldcode */}
+        {/* {
           this.state.exploredatalist !==""?
           this.state.exploredatalist.map((items, i)=>{
             console.log(items.memberlist)
@@ -106,7 +170,7 @@ class Explore extends React.Component {
                       <Text style = {{color: '#fff', fontSize: 20}}>{items.Triptitle}</Text>
                   </View>
                   
-                  {/* <Text>{fromday}th {frommonth} {fromyear} to {today}th {tomonth} {toyear}</Text>
+                  <Text>{fromday}th {frommonth} {fromyear} to {today}th {tomonth} {toyear}</Text>
                   {
                     items.memberlist !=="" && items.memberlist !== undefined ?
                     Object.values(items.memberlist).map((itemmember, im)=>{
@@ -115,7 +179,7 @@ class Explore extends React.Component {
                       )
                     })
                     :null
-                  } */}
+                  }
                  
                   </View>
                   </View>
@@ -123,8 +187,9 @@ class Explore extends React.Component {
               </View>
             )
           }): null
-        }
-        
+        } */}
+
+        {/* oldcode */}
           
       </ScrollView>
     );

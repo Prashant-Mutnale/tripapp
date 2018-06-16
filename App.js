@@ -64,35 +64,40 @@ export default class App extends React.Component {
                             title={Favourites}
                             component={Favourites} />
         </Scene> */}
-        <Scene key="home"  tabs={true}  tabBarPosition="top" 
-        // tabBarStyle={{marginTop: 20}}
+        <Scene key="home"  tabs={true}
+        showIcon={false}
+        tabBarStyle={{paddingTop: 0, marginTop: 0}}
+        hideNavBar
         >
         <Scene  key="mytrip"
                           title="MyTrips"
-                          iconName="tags"
+                          // iconName="tags"
                           // icon={TabIcon}
-                          hideNavBar={true}
+                          showIcon={false}
                           component={myTrips}
                           initial={true}
+                         
+                          
                   />
                   <Scene  key="explore"
                           title="Explore"
-                          iconName="newspaper-o"
+                          showIcon={false}
+                         
+                          // iconName="newspaper-o"
                           // icon={TabIcon}
-                          hideNavBar={true}
                           component={Explore}
                    />
 
                     <Scene  key="favourites"
-                            iconName="gear"
+                    showIcon={false}
+                            // iconName="gear"
                             // icon={TabIcon}
-                            hideNavBar={true}
                             title={Favourites}
                             component={Favourites} />
                  </Scene>
                  <Scene key="createtrips" component={createTrips} title="Create Trip"/>
                  <Scene key="searchmembers" component={searchMembers} title="Search"/>
-                 <Scene key="tripsdetails" component={tripDetails} title="Trip Details"/>
+                 <Scene key="tripsdetails" component={tripDetails} headerTintColor="#fff" title="Trip Details" navigationBarStyle={{ backgroundColor: 'transparent', position: 'absolute', top: 0}}/>
         {/* <Scene key="register" component={Register} title="Register"/>
         <Scene key="home" component={Home}/> */}
       </Scene>

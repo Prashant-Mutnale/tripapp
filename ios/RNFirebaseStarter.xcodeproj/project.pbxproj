@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302C01ABCB91800DB3ED1 /* libRCTImage.a */; };
@@ -31,16 +30,16 @@
 		2D02E4C91E0B4AEC006451C7 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* RNFirebaseStarterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* RNFirebaseStarterTests.m */; };
 		44D466A4F8474B358C9C76C3 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07AF57F15E14DC89D647DF0 /* SafariServices.framework */; };
+		49844905720FAD794F022F8E /* Pods_RNFirebaseStarter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E6A173882A55C815FF14C65 /* Pods_RNFirebaseStarter.framework */; };
 		5B7D801BFBB74F82B27A9E18 /* libRNGoogleSignin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93CDEE1B163648D09529114B /* libRNGoogleSignin.a */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		68B70528A2734DEA89C8B214 /* libRNFirebase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FBC8C743C046423C960F2237 /* libRNFirebase.a */; };
 		70D35B826D4C458C8944AFB6 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E071C99AAE7A4A5FAD44F479 /* libz.tbd */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		8AC32FC9E618BAF50474C99C /* libPods-RNFirebaseStarter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AED90D7D1AF5B8A4E0565FFB /* libPods-RNFirebaseStarter.a */; };
 		B81CC661812E4E9AAB2A9FC3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD0CE943C4A2421AB255B624 /* SystemConfiguration.framework */; };
 		D9204AE086B8484499F923B3 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B56A214C52F4C55825FD13F /* AddressBook.framework */; };
+		DC35F80A20D393F0009A3D47 /* libRNFetchBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DCC2EA8120C907FA00FCE5A1 /* libRNFetchBlob.a */; };
 		DCC2E92420C8F0A700FCE5A1 /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DCC2E92320C8F08600FCE5A1 /* libRNImagePicker.a */; };
-		DCC2EA8220C9080700FCE5A1 /* libRNFetchBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DCC2EA8120C907FA00FCE5A1 /* libRNFetchBlob.a */; };
 		DCC2EC2E20C942BB00FCE5A1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
 		DCC2EC2F20C942C400FCE5A1 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
 		DCC2EC3020C942D400FCE5A1 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
@@ -53,6 +52,8 @@
 		DCDBC3F620BFBEEB00A5F2B2 /* GoogleSymbolUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCDBC3F020BFBEEA00A5F2B2 /* GoogleSymbolUtilities.framework */; };
 		DCDBC3F720BFBEEB00A5F2B2 /* GoogleNetworkingUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCDBC3F120BFBEEB00A5F2B2 /* GoogleNetworkingUtilities.framework */; };
 		DCDBC3F820BFBEEB00A5F2B2 /* GoogleAuthUtilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCDBC3F220BFBEEB00A5F2B2 /* GoogleAuthUtilities.framework */; };
+		FBE569D2603B42F6980AA36F /* helvitica.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 095B83CCE8CB416D95A00932 /* helvitica.ttf */; };
+		A2F8FC05831945CDA2A2CC05 /* HELR45W.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E9CBD3F3C0F7430C8F2D3A2A /* HELR45W.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -398,6 +399,7 @@
 		2D02E47B1E0B4A5D006451C7 /* RNFirebaseStarter-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RNFirebaseStarter-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* RNFirebaseStarter-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RNFirebaseStarter-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4031C5D3468A6410BB4016B9 /* Pods-RNFirebaseStarter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNFirebaseStarter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RNFirebaseStarter/Pods-RNFirebaseStarter.debug.xcconfig"; sourceTree = "<group>"; };
+		5E6A173882A55C815FF14C65 /* Pods_RNFirebaseStarter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RNFirebaseStarter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
@@ -405,7 +407,6 @@
 		A308DE9683784544BE09D8C6 /* libRCTFBSDK.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTFBSDK.a; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		ADF4CB3C3BF44D3EBA8B78C4 /* RNFirebase.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFirebase.xcodeproj; path = "../node_modules/react-native-firebase/ios/RNFirebase.xcodeproj"; sourceTree = "<group>"; };
-		AED90D7D1AF5B8A4E0565FFB /* libPods-RNFirebaseStarter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RNFirebaseStarter.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B07AF57F15E14DC89D647DF0 /* SafariServices.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		B7AFA8AA9A1CFD17320E9074 /* Pods-RNFirebaseStarter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RNFirebaseStarter.release.xcconfig"; path = "Pods/Target Support Files/Pods-RNFirebaseStarter/Pods-RNFirebaseStarter.release.xcconfig"; sourceTree = "<group>"; };
 		BE82553D89594A7082385DDF /* RCTFBSDK.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTFBSDK.xcodeproj; path = "../node_modules/react-native-fbsdk/ios/RCTFBSDK.xcodeproj"; sourceTree = "<group>"; };
@@ -424,6 +425,8 @@
 		DD0CE943C4A2421AB255B624 /* SystemConfiguration.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E071C99AAE7A4A5FAD44F479 /* libz.tbd */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		FBC8C743C046423C960F2237 /* libRNFirebase.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFirebase.a; sourceTree = "<group>"; };
+		095B83CCE8CB416D95A00932 /* helvitica.ttf */ = {isa = PBXFileReference; name = "helvitica.ttf"; path = "../assets/fonts/helvitica.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E9CBD3F3C0F7430C8F2D3A2A /* HELR45W.ttf */ = {isa = PBXFileReference; name = "HELR45W.ttf"; path = "../assets/fonts/HELR45W.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -439,11 +442,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC35F80A20D393F0009A3D47 /* libRNFetchBlob.a in Frameworks */,
 				DCC2EC3320C944E300FCE5A1 /* libReact.a in Frameworks */,
 				DCC2EC3020C942D400FCE5A1 /* libRCTNetwork.a in Frameworks */,
 				DCC2EC2F20C942C400FCE5A1 /* libRCTWebSocket.a in Frameworks */,
 				DCC2EC2E20C942BB00FCE5A1 /* libRCTGeolocation.a in Frameworks */,
-				DCC2EA8220C9080700FCE5A1 /* libRNFetchBlob.a in Frameworks */,
 				DCC2E92420C8F0A700FCE5A1 /* libRNImagePicker.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
 				DCDBC3F520BFBEEB00A5F2B2 /* GoogleUtilities.framework in Frameworks */,
@@ -465,7 +468,7 @@
 				DCDBC3F320BFBEEB00A5F2B2 /* GoogleAppUtilities.framework in Frameworks */,
 				B81CC661812E4E9AAB2A9FC3 /* SystemConfiguration.framework in Frameworks */,
 				D9204AE086B8484499F923B3 /* AddressBook.framework in Frameworks */,
-				8AC32FC9E618BAF50474C99C /* libPods-RNFirebaseStarter.a in Frameworks */,
+				49844905720FAD794F022F8E /* Pods_RNFirebaseStarter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -683,6 +686,7 @@
 				6A84F842C723265FECF9ADFD /* Pods */,
 				927E270FF1706B5003F5613D /* Frameworks */,
 				8E7D4AFB1F8AFD6F00699FE4 /* Recovered References */,
+				6F2709D1325448B4B3B3D2FC /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -732,7 +736,7 @@
 				B07AF57F15E14DC89D647DF0 /* SafariServices.framework */,
 				DD0CE943C4A2421AB255B624 /* SystemConfiguration.framework */,
 				1B56A214C52F4C55825FD13F /* AddressBook.framework */,
-				AED90D7D1AF5B8A4E0565FFB /* libPods-RNFirebaseStarter.a */,
+				5E6A173882A55C815FF14C65 /* Pods_RNFirebaseStarter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -786,6 +790,16 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		6F2709D1325448B4B3B3D2FC /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				095B83CCE8CB416D95A00932 /* helvitica.ttf */,
+				E9CBD3F3C0F7430C8F2D3A2A /* HELR45W.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -818,6 +832,7 @@
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				83B761F71FE42BDD00F21A7A /* Crashlytics */,
 				EDB52506699BBE27F89411F9 /* [CP] Copy Pods Resources */,
+				69F49AF525EB25DB5F66136D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1306,6 +1321,8 @@
 				DCDBC3B520BFBCDC00A5F2B2 /* GoogleService-Info.plist in Resources */,
 				DCDBC3B320BFBAAF00A5F2B2 /* GoogleSdk in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				FBE569D2603B42F6980AA36F /* helvitica.ttf in Resources */,
+				A2F8FC05831945CDA2A2CC05 /* HELR45W.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1355,6 +1372,44 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
+		69F49AF525EB25DB5F66136D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-RNFirebaseStarter/Pods-RNFirebaseStarter-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RNFirebaseStarter/Pods-RNFirebaseStarter-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7EEED693062F803EA2B9E72F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1394,15 +1449,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-RNFirebaseStarter/Pods-RNFirebaseStarter-resources.sh",
-				"${PODS_ROOT}/GTMOAuth2/Source/Touch/GTMOAuth2ViewTouch.xib",
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/gRPC/gRPCCertificates.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GTMOAuth2ViewTouch.nib",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

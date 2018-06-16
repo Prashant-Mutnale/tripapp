@@ -12,9 +12,11 @@ class tripDetails extends React.Component {
     super();
     this.state = {
       useriddata: '',
-      tripsdata: ''
+      tripsdata: '',
+      tripmemberslist : ''
     };
     // this.gettripdetails = this.gettripdetails.bind(this)
+    this.getpartlist = this.getpartlist.bind(this)
   }
   componentWillMount(){
     AsyncStorage.getItem("useriddata").then((value) => {
@@ -33,9 +35,21 @@ class tripDetails extends React.Component {
       })
     })
   }
-
+  getpartlist(tripid){
+    console.log(tripid)
+    let tripsmembers = firebase.database().ref('userlist').child(tripid);
+    tripsmembers.on('value', snapshot=> {
+      this.setState({
+        tripmemberslist: snapshot._value
+      })
+    })
+  }
+  componentDidMount(){
+    
+  }
 
   render() {
+    console.log("tripsmemberlist", this.state.tripmemberslist)
     console.log(this.state.tripsdata.place)
     let dateString = new Date(this.state.tripsdata.todate)
     console.log("datedatta",dateString)
@@ -59,7 +73,7 @@ class tripDetails extends React.Component {
     console.log(fromyear)
     // console.log("fromtimestamp",tofromtimestamp)
     return (
-      <ScrollView>
+      <ScrollView style = {{backgroundColor: '#fff'}}>
         <View style = {{position: 'relative', height: 300}}>
         <Image
               
@@ -103,8 +117,22 @@ class tripDetails extends React.Component {
           :null
         } */}
         <View>
-        <Text style = {{color: '#6E747F'}}>{this.state.tripsdata.tripdescriptiondata}</Text>
+        <Text style = {{color: '#6E747F', fontSize: 14, lineHeight: 30, textAlign: 'left', margin: 30}}>{this.state.tripsdata.tripdescriptiondata}</Text>
         </View>
+             
+            {
+          this.state.tripsdata!==""?
+          Object.values(this.state.tripsdata.memberstrips).map((items, i) => {
+            // console.log("dataitems",items)
+            return(
+              <View style = {{flexDirection: 'row'}}>
+                <Text>{items.namedata}</Text>
+                {/* {items.uidkey !== ""?this.getpartlist(items.uidkey):null}  */}
+              </View>
+            )
+          })
+          :null
+        }
       </ScrollView>
     );
   }

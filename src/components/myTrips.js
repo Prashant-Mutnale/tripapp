@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Platform, Image, Text, View, ScrollView, TouchableOpacity, TextInput,AsyncStorage } from 'react-native';
+import { StyleSheet, Platform, Image, Text, View, ScrollView, TouchableOpacity, TextInput,AsyncStorage, FlatList} from 'react-native';
 import {fetchPosts} from '../redux/actions/postActions';
 import firebase from 'react-native-firebase';
 import {connect} from 'react-redux'
@@ -127,7 +127,46 @@ getdatacount(fromget,toget){
                  <Text>content</Text>
               </View>
           </TouchableOpacity>
-          {
+          <FlatList
+          data={this.state.profiletripslist}
+          showsVerticalScrollIndicator={false}
+          renderItem={({item}) =>
+          <TouchableOpacity 
+          onPress={()=>Actions.tripsdetails({keyiddata: item.keyid})}
+          style={styles.flatview}>
+                 <View style = {{
+                        flex: 1,
+                        height: 140,
+                        position: 'relative',
+                        marginTop: 10
+                        // backgroundColor: 'red'
+                    }}>
+                        <Image
+                  //  blurRadius={1}
+                  style={{borderRadius: 5,flexShrink: 1, flex: 1, width: null}}
+                  source={{uri: item.tripbackground}}
+                  />
+                  <View style = {{
+                    position: 'absolute',
+                    top: 0,
+                    width: '100%',
+                    backgroundColor: 'rgba(57, 70, 91, 0.53)',
+                    height: '100%',
+                  }}>
+                  <View style = {{height: '100%',  justifyContent: 'center', alignItems: 'center'}}>  
+                    <Text style = {{color: '#fff', fontSize: 20}}>{item.Triptitle}</Text>
+                    </View>
+                  </View>
+                    </View>
+          </TouchableOpacity>
+          }
+          keyExtractor={item => item.email}
+        />
+        
+        {/* <TouchableOpacity onPress = {()=>this.signout()}> <Text>Sign out</Text></TouchableOpacity> */}
+
+
+   {/*              {
             this.state.profiletripslist!==""?
             this.state.profiletripslist.map((items,i) =>{
               // console.log("inneritems", items.fromdata)
@@ -161,7 +200,7 @@ getdatacount(fromget,toget){
                     </View>
                   </View>
                     </View>
-                    {/* <View style = {{
+                    <View style = {{
                         flex: 2
                     }}>
                        <Text>{items.Triptitle}</Text>
@@ -177,13 +216,13 @@ getdatacount(fromget,toget){
                        <Text>{items.fromdata}</Text>
                        <Text>{items.todate}</Text>
                        <Text>{statusdata}</Text>
-                    </View> */}
+                    </View>
                     
                 </TouchableOpacity>
               )
             }): null
-          }
-        {/* <TouchableOpacity onPress = {()=>this.signout()}> <Text>Sign out</Text></TouchableOpacity> */}
+          } */}
+          
       </ScrollView>
     );
   }
