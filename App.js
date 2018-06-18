@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Platform, Image, Text, View, ScrollView, TouchableOpacity, AsyncStorage } from 'react-native';
 import {Provider, connect} from 'react-redux';
 import store from './src/redux/store'
-import {Actions, Scene, Router, tabs} from 'react-native-router-flux';
+import {Actions, Scene, Router, tabs, NavBar} from 'react-native-router-flux';
 import firebase from 'react-native-firebase';
 import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
 import Signup from './src/components/signup'
@@ -20,6 +20,7 @@ export default class App extends React.Component {
     this.state = {
       useriddata: ''
     }
+    this._signout=this._signout.bind(this)
   }
   componentWillMount(){
     
@@ -34,11 +35,16 @@ export default class App extends React.Component {
       }
   }).done();
   }
+  _signout(){
+    console.log("gotsignout")
+    AsyncStorage.removeItem('useriddata')
+    Actions.signin()
+  }
   render() {
     
     const scenes = Actions.create(
       <Scene key="root">
-        <Scene key="signin" component={Signin} title="Signin"/>
+        <Scene key="signin" component={Signin} title="Signin" renderBackButton={()=><View/>}/>
         <Scene key="signup" component={Signup} title="Signup"/>
         {/* <Scene key="home" component={Home} title="Home" tabBar tabBarPosition="top">
                         <Scene  key="mytrip"
@@ -66,38 +72,49 @@ export default class App extends React.Component {
         </Scene> */}
         <Scene key="home"  tabs={true}
         showIcon={false}
+        rightTitle='Sign out'
         tabBarStyle={{paddingTop: 0, marginTop: 0}}
         hideNavBar
+        tabBarPosition={'bottom'}
         >
-        <Scene  key="mytrip"
+        <Scene  renderBackButton={()=><View/>} key="mytrip"
                           title="MyTrips"
                           // iconName="tags"
                           // icon={TabIcon}
                           showIcon={false}
                           component={myTrips}
                           initial={true}
+                          onRight={this._signout}
+                          rightTitle='Sign out'
+                          
+                         
                          
                           
                   />
-                  <Scene  key="explore"
+                  <Scene  renderBackButton={()=><View/>} key="explore"
                           title="Explore"
                           showIcon={false}
+                          onRight={this._signout}
+                          rightTitle='Sign out'
+                          
                          
                           // iconName="newspaper-o"
                           // icon={TabIcon}
                           component={Explore}
                    />
 
-                    <Scene  key="favourites"
-                    showIcon={false}
+                    <Scene  renderBackButton={()=><View/>} key="favourites"
+                    // showIcon={false}
+                    onRight={this._signout}
+                    rightTitle='Sign out'
                             // iconName="gear"
                             // icon={TabIcon}
                             title={Favourites}
                             component={Favourites} />
                  </Scene>
-                 <Scene key="createtrips" component={createTrips} title="Create Trip"/>
-                 <Scene key="searchmembers" component={searchMembers} title="Search"/>
-                 <Scene key="tripsdetails" component={tripDetails} headerTintColor="#fff" title="Trip Details" navigationBarStyle={{ backgroundColor: 'transparent', position: 'absolute', top: 0}}/>
+                 <Scene key="createtrips" rightTitle='Sign out' component={createTrips} title="Create Trip" onRight={this._signout}/>
+                 <Scene key="searchmembers" rightTitle='Sign out' component={searchMembers} title="Search" rightTitle='Sign out' onRight={this._signout} onRight={this._signout}/>
+                 <Scene key="tripsdetails" rightTitle='Sign out' component={tripDetails} headerTintColor="#fff" title="Trip Details" navigationBarStyle={{ backgroundColor: 'transparent', position: 'absolute', top: 0}} onRight={this._signout}/>
         {/* <Scene key="register" component={Register} title="Register"/>
         <Scene key="home" component={Home}/> */}
       </Scene>

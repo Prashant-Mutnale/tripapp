@@ -95,7 +95,7 @@ class tripDetails extends React.Component {
         }}>
         <Text style = {{color: '#fff',fontSize: 30}}>{this.state.tripsdata.Triptitle}</Text>
             <Text style = {{color: '#fff'}}>{this.state.tripsdata.place}</Text>
-            <Text style = {{color: '#fff'}}>{datenumto}th {monthto} {yearto} - {fromdate}th {frommonth} {fromyear}</Text>
+            <Text style = {{color: '#fff'}}>{fromdate}th {frommonth} {fromyear} - {datenumto}th {monthto} {yearto}</Text>
             
         </View>
         
@@ -119,14 +119,23 @@ class tripDetails extends React.Component {
         <View>
         <Text style = {{color: '#6E747F', fontSize: 14, lineHeight: 30, textAlign: 'left', margin: 30}}>{this.state.tripsdata.tripdescriptiondata}</Text>
         </View>
-             
+          <View style = {{marginLeft: 20}}><Text style = {{fontSize:25}}>Participants</Text></View>
             {
           this.state.tripsdata!==""?
           Object.values(this.state.tripsdata.memberstrips).map((items, i) => {
-            // console.log("dataitems",items)
+            console.log("dataitems",items)
             return(
-              <View style = {{flexDirection: 'row'}}>
-                <Text>{items.namedata}</Text>
+              <View style = {{flexDirection: 'row', margin: 20}}>
+                   <View style = {{borderRadius: 50,overflow: 'hidden',  width: 50,
+                height: 50}}>
+                 <Image
+          style={{flexShrink: 1, flex: 1, width: null}}
+          source={{uri: items.profileavatar}}
+        />
+              </View>
+           
+              <View style = {{flex: 3, justifyContent: 'flex-start', marginLeft: 10}}><Text style = {{fontSize: 16}}>{items.namedata}</Text></View>
+                {/* <Text>{items.namedata}</Text> */}
                 {/* {items.uidkey !== ""?this.getpartlist(items.uidkey):null}  */}
               </View>
             )

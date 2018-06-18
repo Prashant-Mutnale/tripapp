@@ -6,6 +6,7 @@ import {connect} from 'react-redux'
 import store from '../redux/store'
 import {Actions} from 'react-native-router-flux';
 import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
+import TimeAgo from 'react-native-timeago';
 let explorecard
 class Explore extends React.Component {
   constructor() {
@@ -37,6 +38,8 @@ class Explore extends React.Component {
     // console.log(this.state.exploredatalist)
     return (
       <ScrollView>
+        
+           
         {
           this.state.nodata?
           <View><Text>no data found</Text></View>
@@ -61,7 +64,8 @@ class Explore extends React.Component {
     />
               
               </View>
-              <View style = {{flex: 2, marginLeft: 10}}><Text>{item.firstname} {item.lastname}</Text></View>
+              <View style = {{flex: 2, marginTop: 8,  marginLeft: 10, alignItems: 'flex-start', justifyContent: 'flex-start'}}><Text>{item.firstname} {item.lastname}</Text><TimeAgo time={item.keyid} /></View>
+              
             </View>
               <View style = {{
                 flex: 1,
@@ -190,7 +194,6 @@ class Explore extends React.Component {
         } */}
 
         {/* oldcode */}
-          
       </ScrollView>
     );
   }

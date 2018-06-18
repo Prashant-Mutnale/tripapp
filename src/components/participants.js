@@ -119,7 +119,7 @@ componentWillMount(){
                         <TouchableOpacity 
                         // onPress = {()=>this.senddata(items.firstname, items.uid)}
                         key = {i} 
-                        onPress = {()=>Actions.createtrips({profile:{namedata: items.firstname, uidkey: items.uid}})}
+                        onPress = {()=>Actions.createtrips({profile:{namedata: items.firstname, lastname: items.lastname, uidkey: items.uid, profileavatar: items.avatar}})}
                         >
                         
                          {/* <TouchableOpacity key = {i} onPress = {()=>Actions.createtrips({profile:items.firstname})}>    */}

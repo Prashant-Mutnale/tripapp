@@ -133,12 +133,11 @@ getdatacount(fromget,toget){
           renderItem={({item}) =>
           <TouchableOpacity 
           onPress={()=>Actions.tripsdetails({keyiddata: item.keyid})}
-          style={styles.flatview}>
+          style={{margin: 10}}>
                  <View style = {{
                         flex: 1,
                         height: 140,
                         position: 'relative',
-                        marginTop: 10
                         // backgroundColor: 'red'
                     }}>
                         <Image
