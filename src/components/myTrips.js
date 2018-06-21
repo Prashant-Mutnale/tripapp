@@ -115,16 +115,23 @@ getdatacount(fromget,toget){
           style = {{
               flexDirection: 'row'
           }}>
-              <View style = {{
+              {/* <View style = {{
                   flex: 1,
                   backgroundColor: 'red'
               }}>
               <Text>image</Text>
-              </View>
+              </View> */}
               <View style = {{
-                  flex: 2
+                  flex: 2,
+                  margin: 10,
+                  padding: 20,
+                  backgroundColor: '#3498DB',
+                  justifyContent: 'center',
+                  alignItems: 'center'
               }}>
-                 <Text>content</Text>
+                 <Text style = {{
+                   color: '#fff'
+                 }}>Add trip</Text>
               </View>
           </TouchableOpacity>
           <FlatList

@@ -49,7 +49,7 @@ class Explore extends React.Component {
           data={this.state.exploredatalist}
           showsVerticalScrollIndicator={false}
           renderItem={({item}) =>
-          <View style = {{
+          <TouchableOpacity style = {{
             margin: 10
           }}>
             <View style = {{
@@ -104,7 +104,7 @@ class Explore extends React.Component {
               </View>
               </View>
             
-          </View>
+          </TouchableOpacity>
           }
           keyExtractor={item => item.email}
         />
