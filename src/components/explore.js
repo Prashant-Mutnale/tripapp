@@ -49,7 +49,8 @@ class Explore extends React.Component {
           data={this.state.exploredatalist}
           showsVerticalScrollIndicator={false}
           renderItem={({item}) =>
-          <TouchableOpacity style = {{
+          <TouchableOpacity 
+          style = {{
             margin: 10
           }}>
             <View style = {{
