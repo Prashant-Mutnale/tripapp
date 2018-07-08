@@ -271,7 +271,7 @@ placecall(text){
       firstname: this.state.userfirstname,
       lastname: this.state.userlastname,
       avatar: this.state.avatar,
-      tripdescriptiondata: this.state.tripdescription
+      tripdescriptiondata: this.state.description
       // keydata: mytripskey.key
     })
     .then(()=>{

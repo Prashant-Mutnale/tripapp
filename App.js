@@ -14,16 +14,21 @@ import Favourites from './src/components/Favourites'
 import createTrips from './src/components/createTrips'
 import searchMembers from './src/components/participants'
 import tripDetails from './src/components/tripdetails'
+import tripDetailsuser from './src/components/tripdetailsuser'
+import userProfile from './src/components/userprofile'
+let getaxis
 export default class App extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      useriddata: ''
+      useriddata: '',
+      gotdata: false
     }
     this._signout=this._signout.bind(this)
+    this.doParentToggle = this.doParentToggle.bind(this)
   }
   componentWillMount(){
-    
+
     AsyncStorage.getItem("useriddata").then((value) => {
       console.log("valued",value)
       this.setState({"useriddata": value});
@@ -35,13 +40,26 @@ export default class App extends React.Component {
       }
   }).done();
   }
+  doParentToggle(getaxix){
+    console.log("getaxix",getaxix)
+    // this.setState({
+    //   gotdata:getaxix
+    // })
+     getaxis = getaxix
+     if(getaxis>200){
+      // this.setState({
+      //   gotdata: true
+      // })
+     }
+  }
   _signout(){
     console.log("gotsignout")
     AsyncStorage.removeItem('useriddata')
     Actions.signin()
   }
   render() {
-    
+    // console.log("gotdata",this.state.gotdata)
+    console.log("jampact",getaxis)
     const scenes = Actions.create(
       <Scene key="root">
         <Scene key="signin" component={Signin} title="Signin" renderBackButton={()=><View/>}/>
@@ -86,18 +104,18 @@ export default class App extends React.Component {
                           initial={true}
                           onRight={this._signout}
                           rightTitle='Sign out'
-                          
-                         
-                         
-                          
+
+
+
+
                   />
                   <Scene  renderBackButton={()=><View/>} key="explore"
                           title="Explore"
                           showIcon={false}
                           onRight={this._signout}
                           rightTitle='Sign out'
-                          
-                         
+
+
                           // iconName="newspaper-o"
                           // icon={TabIcon}
                           component={Explore}
@@ -113,20 +131,24 @@ export default class App extends React.Component {
                             component={Favourites} />
                  </Scene>
                  <Scene key="createtrips" rightTitle='Sign out' component={createTrips} title="Create Trip" onRight={this._signout}/>
+                 <Scene key="usertripsdetails" rightTitle='Sign out' component={tripDetailsuser} title="User Trip Details" headerTintColor="#fff"
+                //  {getaxis<400}
+                 navigationBarStyle={{ backgroundColor:'transparent', position: 'absolute', top: 0}} onRight={this._signout} parentdata={this.doParentToggle}/>
                  <Scene key="searchmembers" rightTitle='Sign out' component={searchMembers} title="Search" rightTitle='Sign out' onRight={this._signout} onRight={this._signout}/>
                  <Scene key="tripsdetails" rightTitle='Sign out' component={tripDetails} headerTintColor="#fff" title="Trip Details" navigationBarStyle={{ backgroundColor: 'transparent', position: 'absolute', top: 0}} onRight={this._signout}/>
+                 <Scene key="userprofile" rightTitle='Sign out' component={userProfile} title="Profile" onRight={this._signout}/>
         {/* <Scene key="register" component={Register} title="Register"/>
         <Scene key="home" component={Home}/> */}
       </Scene>
-       
+
     );
     return (
       <Provider store = {store}>
-          <Router  scenes={scenes}/>  
+          <Router  scenes={scenes}/>
      </Provider>
       // <ScrollView>
       //   <View style={styles.container}>
-      //   <TouchableOpacity 
+      //   <TouchableOpacity
       //   style = {{
       //     marginTop: 30
       //   }}
